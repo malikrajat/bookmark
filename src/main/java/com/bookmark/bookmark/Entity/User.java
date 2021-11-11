@@ -22,7 +22,7 @@ import com.sun.istack.NotNull;
 import lombok.Data;
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 @Data
 public class User implements Serializable {
 
@@ -67,9 +67,6 @@ public class User implements Serializable {
     @Column(name = "is_active", length = 1, columnDefinition = "boolean  default 0")
     private Boolean active;
 
-    @Column(name = "is_deleted", length = 1, columnDefinition = "boolean  default 0")
-    private Boolean deleted;
-
     @Column(name = "is_blocked", length = 1, columnDefinition = "boolean  default 0")
     private Boolean blocked;
 
@@ -78,6 +75,9 @@ public class User implements Serializable {
 
     @Column(name = "last_login", length = 1, nullable = true, unique = false, columnDefinition = "DateTime")
     private String lastLogin;
+    
+    @Column(name = "is_deleted", length = 1, columnDefinition = "boolean  default 0")
+    private Boolean deleted;
 
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
