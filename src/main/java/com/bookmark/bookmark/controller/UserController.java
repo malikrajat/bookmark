@@ -1,4 +1,4 @@
-package controller;
+package com.bookmark.bookmark.controller;
 
 import org.slf4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserController {
 
 	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(UserController.class);

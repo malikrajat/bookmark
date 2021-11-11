@@ -1,4 +1,4 @@
-package com.bookmark.bookmark.Entity;
+package com.bookmark.bookmark.entity;
 
 import java.io.Serializable;
 import java.util.Date;

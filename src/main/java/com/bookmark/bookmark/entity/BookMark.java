@@ -1,4 +1,4 @@
-package com.bookmark.bookmark.Entity;
+package com.bookmark.bookmark.entity;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,9 +20,9 @@ import com.sun.istack.NotNull;
 import lombok.Data;
 
 @Entity
-@Table(name = "collections")
+@Table(name = "bookmarks")
 @Data
-public class Collection implements Serializable {
+public class BookMark implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -42,14 +42,31 @@ public class Collection implements Serializable {
     @Size(min = 3, max = 20, message = "Title must be between 3 to 20 !!.")
     private String title;
 
+    @Column(nullable = false, unique = false, length = 100, columnDefinition = "varchar(100)  default ''")
+    @NotBlank(message = "Please enter URL")
+    @Size(min = 3, max = 20, message = "Title must be between 3 to 20 !!.")
+    private String url;
 
-    @Column(length = 255, columnDefinition = "bigint(20)")
-    @NotBlank(message = "Position is missing.")
-    private Boolean position;
+    @Column(nullable = true, unique = false, length = 100, columnDefinition = "varchar(255)  default ''")
+    @NotBlank(message = "Please enter description")
+    @Size(min = 3, max = 200, message = "Title must be between 3 to 200 !!.")
+    private String description;
 
     @Column(name = "user_id")
     @NotBlank(message = "User is missing.")
     private User user;
+
+    @Column(name = "collection_id")
+    @NotBlank(message = "collection is missing.")
+    private Collection collection;
+
+    @Column(name = "category_id")
+    @NotBlank(message = "category is missing.")
+    private Category category;
+
+    @Column(columnDefinition = "bigint(20)")
+    @NotBlank(message = "Position is missing.")
+    private Boolean position;
 
     @Column(name = "is_deleted", length = 1, columnDefinition = "boolean  default 0")
     private Boolean deleted;
