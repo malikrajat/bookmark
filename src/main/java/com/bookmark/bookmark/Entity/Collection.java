@@ -42,16 +42,17 @@ public class Collection implements Serializable {
     @Size(min = 3, max = 20, message = "Title must be between 3 to 20 !!.")
     private String title;
 
-    @Column(name = "is_deleted", length = 1, columnDefinition = "boolean  default 0")
-    private Boolean deleted;
 
-    @Column(length = 255, columnDefinition = "integer(100)")
+    @Column(length = 255, columnDefinition = "bigint(20)")
     @NotBlank(message = "Position is missing.")
     private Boolean position;
 
     @Column(name = "user_id")
     @NotBlank(message = "User is missing.")
     private User user;
+
+    @Column(name = "is_deleted", length = 1, columnDefinition = "boolean  default 0")
+    private Boolean deleted;
 
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
