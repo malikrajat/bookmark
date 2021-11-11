@@ -1,0 +1,23 @@
+2021-11-11 21:49:07.237  INFO 14320 --- [restartedMain] c.bookmark.bookmark.BookmarkApplication  : Starting BookmarkApplication using Java 17.0.1 on LAPTOP-13IBJ3MO with PID 14320 (C:\Users\Kristi\Desktop\Rest\boot\bookmark\target\classes started by Kristi in C:\Users\Kristi\Desktop\Rest\boot\bookmark)
+2021-11-11 21:49:07.238  INFO 14320 --- [restartedMain] c.bookmark.bookmark.BookmarkApplication  : No active profile set, falling back to default profiles: default
+2021-11-11 21:49:07.313  INFO 14320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-11 21:49:07.313  INFO 14320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-11 21:49:08.168  INFO 14320 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-11-11 21:49:08.196  INFO 14320 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JPA repository interfaces.
+2021-11-11 21:49:09.400  INFO 14320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-11 21:49:09.423  INFO 14320 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-11 21:49:09.424  INFO 14320 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-11 21:49:09.666  INFO 14320 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-11 21:49:09.667  INFO 14320 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2352 ms
+2021-11-11 21:49:09.943  INFO 14320 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-11 21:49:10.041  INFO 14320 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.4.32.Final
+2021-11-11 21:49:10.443  INFO 14320 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2021-11-11 21:49:10.612  INFO 14320 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : bookmark - Starting...
+2021-11-11 21:49:11.271  INFO 14320 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : bookmark - Start completed.
+2021-11-11 21:49:11.300  INFO 14320 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+2021-11-11 21:49:12.534  INFO 14320 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-11 21:49:12.555  INFO 14320 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-11 21:49:12.589  INFO 14320 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-11 21:49:12.700  WARN 14320 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-11 21:49:13.235  INFO 14320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-11 21:49:13.250  INFO 14320 --- [restartedMain] c.bookmark.bookmark.BookmarkApplication  : Started BookmarkApplication in 6.72 seconds (JVM running for 7.698)
