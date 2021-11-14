@@ -23,5 +23,10 @@ public class UserService {
 		LOGGER.info("findByEmail at user service -> " + filterUser);
 		return filterUser;		
 	}
+	
+//	TODO: Add more check and message like not inactive account
+//	1. User is blocked
+//	2. User is deleted
+//	3. User does not excites
 
 }
