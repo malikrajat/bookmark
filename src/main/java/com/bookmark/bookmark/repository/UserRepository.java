@@ -1,9 +1,12 @@
 package com.bookmark.bookmark.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.CrudRepository;
 
 import com.bookmark.bookmark.entity.User;
 
-public interface UserRepository extends JpaRepository<User, Long> {
+import lombok.NonNull;
 
+public interface UserRepository extends CrudRepository<User, Long> {
+	
+	User findByEmail(@NonNull String email);
 }
