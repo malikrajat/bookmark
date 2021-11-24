@@ -49,7 +49,8 @@ public class Collection implements Serializable {
 
     @Column(name = "user_id")
     @NotBlank(message = "User is missing.")
-    private User user;
+//    private User user;
+    private long user;
 
     @Column(name = "is_deleted", length = 1, columnDefinition = "boolean  default 0")
     private Boolean deleted;
