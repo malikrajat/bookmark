@@ -10,5 +10,6 @@ import com.bookmark.bookmark.entity.Collection;
 public interface CollectionRepository extends CrudRepository<Collection, Long> {
 	
 	List<Collection> findByUser(long id);
+	Collection findById(long id);
 
 }
