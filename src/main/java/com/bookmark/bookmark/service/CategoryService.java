@@ -12,7 +12,7 @@ import com.bookmark.bookmark.repository.CategoryRepository;
 @Service
 public class CategoryService {
 	
-	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(UserService.class);
+	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(CategoryService.class);
 	
 	@Autowired
 	private CategoryRepository categoryRepository;
@@ -30,6 +30,11 @@ public class CategoryService {
 //		}
 		
 		return findByCollection;
+	}
+	
+	public Category getCategoryById(long id){
+		LOGGER.info("getCategoryById  - > " + id);
+		return this.categoryRepository.findById(id);
 	}
 
 }
