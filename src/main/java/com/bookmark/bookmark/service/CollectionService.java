@@ -12,20 +12,19 @@ import com.bookmark.bookmark.repository.CollectionRepository;
 @Service
 public class CollectionService {
 
-	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(CollectionService.class);
-	
-	@Autowired
-	private CollectionRepository collectionRepository;
-	
-	
-	public List<Collection> getCollectionListBasedOnLoginUser(long userId){
-		LOGGER.info(""+ userId);
-		return this.collectionRepository.findByUser(userId);
-	}
-	
-	public Collection getCollectionById(long id){
-		LOGGER.info("getCollectionListBasedOnLoginUser -> "+ id);
-		return this.collectionRepository.findById(id);
-	}
-	
+    private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(CollectionService.class);
+
+    @Autowired
+    private CollectionRepository collectionRepository;
+
+    public List<Collection> getCollectionListBasedOnLoginUser(long userId) {
+        LOGGER.info("" + userId);
+        return this.collectionRepository.findByUser(userId);
+    }
+
+    public Collection getCollectionById(long id) {
+        LOGGER.info("getCollectionById -> " + id);
+        return this.collectionRepository.findById(id);
+    }
+
 }
