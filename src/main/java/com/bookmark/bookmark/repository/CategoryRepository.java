@@ -9,5 +9,6 @@ import com.bookmark.bookmark.entity.Category;
 public interface CategoryRepository extends CrudRepository<Category, Long> {
 	
 	List<Category> findByUser(long id);
+	List<Category> findByCollection(long id);
 
 }

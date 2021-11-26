@@ -18,8 +18,18 @@ public class CategoryService {
 	private CategoryRepository categoryRepository;
 	
 	public List<Category> getCategoryListBasedOnLoginUser(long id){
-		LOGGER.info("Category" + id);
+		LOGGER.info("getCategoryListBasedOnLoginUser  -> " + id);
 		return this.categoryRepository.findByUser(id);
+	}
+	
+	public List<Category> getCategoryListBasedOnCollection(long id){
+		LOGGER.info("getCategoryListBasedOnCollection  - > " + id);
+		List<Category> findByCollection = this.categoryRepository.findByCollection(id);		
+//		for(Category countData: findByCollection) {
+//		    System.out.println(countData.getColor());
+//		}
+		
+		return findByCollection;
 	}
 
 }
