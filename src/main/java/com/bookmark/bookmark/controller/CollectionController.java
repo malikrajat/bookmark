@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -51,7 +52,7 @@ public class CollectionController {
      * @throws exception
      * 
      */
-    @GetMapping("/")
+    @GetMapping("/list")
     public ResponseEntity<List<Collection>> home() throws Exception {
         LOGGER.info("collection page loaded ");
         User user = this.userService.getDefaultUser();
@@ -59,6 +60,24 @@ public class CollectionController {
         System.out.println(collectionList);
 
         return ResponseEntity.ok(collectionList);
+    }
+    
+    /**
+     * This method get collection by id and it required
+     * authorization
+     * 
+     * 
+     * @param none
+     * @return ok status
+     * @throws exception
+     * 
+     */
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<Collection> getCollectionByCategoryId(@PathVariable("id") long id ) throws Exception {
+        LOGGER.info("getCollectionByCategoryId page loaded ");
+        Collection collection = this.collectionService.getCollectionById(id);
+        return ResponseEntity.ok(collection);
     }
 
 }
