@@ -54,15 +54,18 @@ public class BookMark implements Serializable {
 
     @Column(name = "user_id")
     @NotBlank(message = "User is missing.")
-    private User user;
+    // private User user;
+    private long user;
 
     @Column(name = "collection_id")
     @NotBlank(message = "collection is missing.")
-    private Collection collection;
+    // private Collection collection;
+    private long collection;
 
     @Column(name = "category_id")
     @NotBlank(message = "category is missing.")
-    private Category category;
+    // private Category category;
+    private long category;
 
     @Column(columnDefinition = "bigint(20)")
     @NotBlank(message = "Position is missing.")
@@ -77,5 +80,139 @@ public class BookMark implements Serializable {
 
     @UpdateTimestamp
     private Date updated;
+    
+    
+
+    public BookMark(long id,
+            @NotBlank(message = "Slug is missing.") @Size(min = 3, max = 30, message = "Slug must be between 3 to 30 !!.") String slug,
+            @NotBlank(message = "Please enter title") @Size(min = 3, max = 20, message = "Title must be between 3 to 20 !!.") String title,
+            @NotBlank(message = "Please enter URL") @Size(min = 3, max = 20, message = "Title must be between 3 to 20 !!.") String url,
+            @NotBlank(message = "Please enter description") @Size(min = 3, max = 200, message = "Title must be between 3 to 200 !!.") String description,
+            @NotBlank(message = "User is missing.") long user,
+            @NotBlank(message = "collection is missing.") long collection,
+            @NotBlank(message = "category is missing.") long category,
+            @NotBlank(message = "Position is missing.") Boolean position, Boolean deleted, Date created, Date updated) {
+        super();
+        this.id = id;
+        this.slug = slug;
+        this.title = title;
+        this.url = url;
+        this.description = description;
+        this.user = user;
+        this.collection = collection;
+        this.category = category;
+        this.position = position;
+        this.deleted = deleted;
+        this.created = created;
+        this.updated = updated;
+    }
+
+    @Override
+    public String toString() {
+        return "BookMark [category=" + category + ", collection=" + collection + ", created=" + created + ", deleted="
+                + deleted + ", description=" + description + ", id=" + id + ", position=" + position + ", slug=" + slug
+                + ", title=" + title + ", updated=" + updated + ", url=" + url + ", user=" + user + "]";
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getSlug() {
+        return slug;
+    }
+
+    public void setSlug(String slug) {
+        this.slug = slug;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public long getUser() {
+        return user;
+    }
+
+    public void setUser(long user) {
+        this.user = user;
+    }
+
+    public long getCollection() {
+        return collection;
+    }
+
+    public void setCollection(long collection) {
+        this.collection = collection;
+    }
+
+    public long getCategory() {
+        return category;
+    }
+
+    public void setCategory(long category) {
+        this.category = category;
+    }
+
+    public Boolean getPosition() {
+        return position;
+    }
+
+    public void setPosition(Boolean position) {
+        this.position = position;
+    }
+
+    public Boolean getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Boolean deleted) {
+        this.deleted = deleted;
+    }
+
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
+
+	public BookMark() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 }
