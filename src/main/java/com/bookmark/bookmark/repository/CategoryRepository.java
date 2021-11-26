@@ -1,9 +1,13 @@
 package com.bookmark.bookmark.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
 
 import com.bookmark.bookmark.entity.Category;
 
-public interface CategoryRepository extends JpaRepository<Category, Long> {
+public interface CategoryRepository extends CrudRepository<Category, Long> {
+	
+	List<Category> findByUser(long id);
 
 }

@@ -44,11 +44,13 @@ public class Category implements Serializable {
 
 	@Column(name = "user_id", columnDefinition = "bigint(20)")
 	@NotBlank(message = "User is missing.")
-	private User user;
+//	private User user;
+	private long user;
 	
 	@Column(name = "collection_id")
 	@NotBlank(message = "collection is missing.")
-	private Collection collection;
+//	private Collection collection;
+	private long collection;
 	
 	@Column(columnDefinition = "bigint(20)")
 	@NotBlank(message = "Position is missing.")
