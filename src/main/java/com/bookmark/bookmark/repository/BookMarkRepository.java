@@ -1,9 +1,15 @@
 package com.bookmark.bookmark.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
 
 import com.bookmark.bookmark.entity.BookMark;
 
-public interface BookMarkRepository extends JpaRepository<BookMark, Long> {
+public interface BookMarkRepository extends CrudRepository<BookMark, Long> {
+	List<BookMark> findByUser(long id);
+	List<BookMark> findByCollection(long id);
+	List<BookMark> findByCategory(long id);
+	BookMark findById(long id);
 
 }
