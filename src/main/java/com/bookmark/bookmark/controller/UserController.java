@@ -1,5 +1,7 @@
 package com.bookmark.bookmark.controller;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,66 +16,91 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bookmark.bookmark.entity.User;
 import com.bookmark.bookmark.service.UserService;
+
 /**
  * Rest COntroller for User related logic
  * 
  * @author Rajat
  * 
- * */
+ */
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/user")
 public class UserController {
-	
+
 	/**
-	 * Logging service 
+	 * Logging service
 	 */
+
 	private static final Logger LOGGER = org.slf4j.LoggerFactory.getLogger(UserController.class);
-	
+
 	/**
 	 * User related logic service
 	 */
+
 	@Autowired
 	private UserService userService;
 
 	/**
-	 * This method get triggered on page load by default and it do not required any authorization
+	 * This method get triggered on page load by default and it do not required any
+	 * authorization
 	 * 
-	 *  @param none
-	 *  @return ok status
-	 *  @throws exception
-	 *  
-	 * */
+	 * @param none
+	 * @return ok status
+	 * @throws exception
+	 * 
+	 */
+
 	@GetMapping("/")
 	public ResponseEntity<HttpStatus> home() throws Exception {
 		LOGGER.info("Home page loaded ");
 		return new ResponseEntity<HttpStatus>(HttpStatus.OK);
 	}
-	
+
 	/**
-	 * This method get triggered on login page load and it do not required any authorization
+	 * This method get triggered on login page load and it do not required any
+	 * authorization
 	 * 
-	 *  @param none
-	 *  @return User or Blank
-	 *  @throws exception
-	 *  
-	 * */
+	 * @param none
+	 * @return User or Blank
+	 * @throws exception
+	 * 
+	 */
+
 	@PostMapping("/login")
 	public ResponseEntity<User> login(@RequestParam String email, @RequestParam String password) throws Exception {
 		LOGGER.info("Login function get called " + email + " " + password);
-		if(email == null || password == null) {
+		if (email == null || password == null) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		User loginUser = this.userService.login(email);
 		LOGGER.info("Login user details --> " + loginUser);
-		if(loginUser != null) {		
+		if (loginUser != null) {
 			return new ResponseEntity<User>(loginUser, HttpStatus.OK);
 		}
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}
-	
-//	TODO: why we use ResponseEntity<> as blank 
-//	TODO: how to remove password from find query.
 
+	/**
+	 * This method get triggered on login page load and it do not required any
+	 * authorization
+	 * 
+	 * @param none
+	 * @return User or Blank
+	 * @throws exception
+	 * 
+	 */
+
+	@PostMapping("/register")
+	public ResponseEntity<?> register(@Valid @RequestBody User user) throws Exception {
+		LOGGER.info("register function get called -> " + user);
+		return new ResponseEntity<>(this.userService.registerNewUser(user), HttpStatus.CREATED);
+	}
+
+	// TODO: Send validate error message back to api caller
+	// TODO: why we use ResponseEntity<> as blank
+	// TODO: how to remove password from find query.
+	// TODO: Unique email unique validation missing
+	// TODO: Apply custom validation like check for user name as unique
 
 }

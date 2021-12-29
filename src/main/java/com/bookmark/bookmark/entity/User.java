@@ -43,8 +43,6 @@ public class User implements Serializable {
     long id;
 
     @Column(nullable = false, unique = true, length = 100)
-    @NotBlank(message = "Slug is missing.")
-    @Size(min = 3, max = 30, message = "Slug must be between 3 to 30 !!.")
     private String slug;
 
     @Column(name = "user_name", nullable = false, unique = true, length = 100, columnDefinition = "varchar(50)  default ''")
@@ -57,7 +55,7 @@ public class User implements Serializable {
     @Size(min = 3, max = 20, message = "Name must be between 3 to 20 !!.")
     private String name;
 
-    @Column(nullable = false, unique = true, length = 100, columnDefinition = "varchar(100)  default ''")
+    @Column(nullable = false, unique = true, length = 100, columnDefinition = "varchar(100)")
     @NotBlank(message = "Email can not be empty !!.")
     @Size(min = 3, max = 20, message = "Email must be between 3 to 20 !!.")
     @Email(message = "Please enter correct email address")
@@ -70,13 +68,13 @@ public class User implements Serializable {
 
     @Column(name = "term_condition", length = 1, columnDefinition = "boolean  default false")
     @AssertTrue(message = "please accept term & condition.")
-    private Boolean termCondition;
+    private Boolean termCondition = false;
 
     @Column(name = "is_active", length = 1, columnDefinition = "boolean  default 0")
-    private Boolean active;
+    private Boolean active = false;
 
     @Column(name = "is_blocked", length = 1, columnDefinition = "boolean  default 0")
-    private Boolean blocked;
+    private Boolean blocked = false;
 
     @Column(name = "email_token", length = 1, nullable = true, unique = false, columnDefinition = "varchar(100)  default ''")
     private String emailToken;
@@ -85,7 +83,7 @@ public class User implements Serializable {
     private String lastLogin;
     
     @Column(name = "is_deleted", length = 1, columnDefinition = "boolean  default 0")
-    private Boolean deleted;
+    private Boolean deleted = false;
 
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
